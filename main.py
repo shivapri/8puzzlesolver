@@ -44,18 +44,7 @@ def checkCost(a,b):
         for j in range(0, 3, 1):
             if (a[i][j] != b[i][j]):
                 cost =cost + 1
-                # return "Not same"
-                # break
     return cost
-# goal_state_matrix = matrix(goal_state)
-# t = [x for x in goal_state if x=="_"]
-# print(t)
-# type(goal_state)
-# print(func(initial_state,goal_state))
-# print(checkCost(initial_state,goal_state)
-# a,b =np.where(goal_state=='_')
-# print(a)
-# print(b)
 def checkPosition(goal):
     new_goal_state = np.array(goal)
 # new_goal_state = new_goal_state.reshape(-1,1)
@@ -106,17 +95,14 @@ else:
                 work_current_state[a[0]][b[0] + 1] = '_'
                 work_current_state[a[0]][b[0]] = temp
                 cost_right = checkCost(work_current_state,goal_state)
-                # print("turn right")
-                # print(new_goal_state)
-
+               
                 work_current_state = np.array(new_current_state)
                 a, b = np.where(work_current_state == '_')
                 temp = work_current_state[a[0]][b[0] - 1]
                 work_current_state[a[0]][b[0] - 1] = '_'
                 work_current_state[a[0]][b[0]] = temp
                 cost_left = checkCost(work_current_state,goal_state)
-                # print("turn left")
-                # print(new_goal_state)
+                
                 work_current_state = np.array(new_current_state)
                 a, b = np.where(work_current_state == '_')
                 temp = work_current_state[a[0]-1][b[0]]
@@ -132,7 +118,7 @@ else:
                 work_current_state[a[0]+1][b[0]] = '_'
                 work_current_state[a[0]][b[0]] = temp
                 cost_down = checkCost(work_current_state, goal_state)
-                # print("turn down")
+                
         elif(checkPosition(new_current_state)=="extreme up left"):
                 work_current_state = np.array(new_current_state)
                 a, b = np.where(work_current_state == '_')
@@ -140,7 +126,7 @@ else:
                 work_current_state[a[0]][b[0] + 1] = '_'
                 work_current_state[a[0]][b[0]] = temp
                 cost_right = checkCost(work_current_state, goal_state)
-                #Cost down
+               
                 work_current_state = np.array(new_current_state)
                 a, b = np.where(work_current_state == '_')
                 temp = work_current_state[a[0] + 1][b[0]]
@@ -180,15 +166,14 @@ else:
                 work_current_state[a[0]][b[0] - 1] = '_'
                 work_current_state[a[0]][b[0]] = temp
                 cost_left = checkCost(work_current_state, goal_state)
-                # print("turn left")
-                # print(new_goal_state)
+                
                 work_current_state = np.array(new_current_state)
                 a, b = np.where(work_current_state == '_')
                 temp = work_current_state[a[0] - 1][b[0]]
                 work_current_state[a[0] - 1][b[0]] = '_'
                 work_current_state[a[0]][b[0]] = temp
                 cost_up = checkCost(work_current_state, goal_state)
-                # print("turn right")
+                
         elif(checkPosition(new_current_state)=="extreme left"):
                 work_current_state = np.array(new_current_state)
                 a, b = np.where(work_current_state == '_')
@@ -196,23 +181,21 @@ else:
                 work_current_state[a[0] - 1][b[0]] = '_'
                 work_current_state[a[0]][b[0]] = temp
                 cost_up = checkCost(work_current_state, goal_state)
-                # print("turn up")
-                # new_goal_state = np.array(goal_state)
-                # #down
+                
                 work_current_state = np.array(new_current_state)
                 a, b = np.where(work_current_state == '_')
                 temp = work_current_state[a[0] + 1][b[0]]
                 work_current_state[a[0] + 1][b[0]] = '_'
                 work_current_state[a[0]][b[0]] = temp
                 cost_down = checkCost(work_current_state, goal_state)
-                # print("turn down")
+                
                 work_current_state = np.array(new_current_state)
                 a, b = np.where(work_current_state == '_')
                 temp = work_current_state[a[0]][b[0] + 1]
                 work_current_state[a[0]][b[0] + 1] = '_'
                 work_current_state[a[0]][b[0]] = temp
                 cost_right = checkCost(work_current_state, goal_state)
-                # print("turn right")
+                
         elif(checkPosition(new_current_state)=="extreme right"):
                 work_current_state = np.array(new_current_state)
                 a, b = np.where(work_current_state == '_')
@@ -220,23 +203,21 @@ else:
                 work_current_state[a[0] - 1][b[0]] = '_'
                 work_current_state[a[0]][b[0]] = temp
                 cost_up = checkCost(work_current_state, goal_state)
-                # print("turn up")
-                # new_goal_state = np.array(goal_state)
-                # #down
+               
                 work_current_state = np.array(new_current_state)
                 a, b = np.where(work_current_state == '_')
                 temp = work_current_state[a[0] + 1][b[0]]
                 work_current_state[a[0] + 1][b[0]] = '_'
                 work_current_state[a[0]][b[0]] = temp
                 cost_down = checkCost(work_current_state, goal_state)
-                # print("turn down")
+               
                 work_current_state = np.array(new_current_state)
                 a, b = np.where(work_current_state == '_')
                 temp = work_current_state[a[0]][b[0] - 1]
                 work_current_state[a[0]][b[0] - 1] = '_'
                 work_current_state[a[0]][b[0]] = temp
                 cost_left = checkCost(work_current_state, goal_state)
-                # print("turn left")
+               
         elif(checkPosition(new_current_state)=="up"):
                 work_current_state = np.array(new_current_state)
                 a, b = np.where(work_current_state == '_')
@@ -244,22 +225,21 @@ else:
                 work_current_state[a[0]][b[0] + 1] = '_'
                 work_current_state[a[0]][b[0]] = temp
                 cost_right = checkCost(work_current_state, goal_state)
-                # print(new_goal_state)
-                # print("turn right")
+          
                 work_current_state = np.array(new_current_state)
                 a, b = np.where(work_current_state == '_')
                 temp = work_current_state[a[0]][b[0] - 1]
                 work_current_state[a[0]][b[0] - 1] = '_'
                 work_current_state[a[0]][b[0]] = temp
                 cost_left = checkCost(work_current_state, goal_state)
-                # print("turn left")
+                
                 work_current_state = np.array(new_current_state)
                 a, b = np.where(work_current_state == '_')
                 temp = work_current_state[a[0] + 1][b[0]]
                 work_current_state[a[0] + 1][b[0]] = '_'
                 work_current_state[a[0]][b[0]] = temp
                 cost_down = checkCost(work_current_state, goal_state)
-                # print("turn down")
+                
         elif(checkPosition(new_current_state)=="down"):
                 work_current_state = np.array(new_current_state)
                 a, b = np.where(work_current_state == '_')
@@ -267,22 +247,21 @@ else:
                 work_current_state[a[0]][b[0] + 1] = '_'
                 work_current_state[a[0]][b[0]] = temp
                 cost_right = checkCost(work_current_state, goal_state)
-                # print(new_goal_state)
-                # print("turn down")
+                
                 work_current_state = np.array(new_current_state)
                 a, b = np.where(work_current_state == '_')
                 temp = work_current_state[a[0]][b[0] - 1]
                 work_current_state[a[0]][b[0] - 1] = '_'
                 work_current_state[a[0]][b[0]] = temp
                 cost_left = checkCost(work_current_state, goal_state)
-                # print("turn left")
+                
                 work_current_state = np.array(new_current_state)
                 a, b = np.where(work_current_state == '_')
                 temp = work_current_state[a[0] - 1][b[0]]
                 work_current_state[a[0] - 1][b[0]] = '_'
                 work_current_state[a[0]][b[0]] = temp
                 cost_up = checkCost(work_current_state, goal_state)
-                # print("turn up")
+                
 
 
 
@@ -323,7 +302,7 @@ else:
             current_state = new_current_state
             new_current_state = work_current
         elif(X==1):
-            # print("chosen right")
+            print("chosen right")
             work_current_state = np.array(new_current_state)
             a, b = np.where(work_current_state == '_')
             temp = work_current_state[a[0]][b[0] + 1]
@@ -338,7 +317,7 @@ else:
             current_state = new_current_state
             new_current_state = work_current
         elif(X==2):
-            # print("chosen up")
+            print("chosen up")
             work_current_state = np.array(new_current_state)
             a, b = np.where(work_current_state == '_')
             temp = work_current_state[a[0] - 1][b[0]]
@@ -355,7 +334,7 @@ else:
             new_current_state = work_current
 
         if(X==3):
-            # print("chosen down")
+            print("chosen down")
             work_current_state = np.array(new_current_state)
             a, b = np.where(work_current_state == '_')
             temp = work_current_state[a[0] + 1][b[0]]
@@ -375,86 +354,3 @@ for i in range(0,3,1):
     for j in range(0,3,1):
         print(new_current_state[i][j],end=" ")
     print()
-#
-# new_current_state = initial_state
-# work_current_state = np.array(new_current_state)
-# a, b = np.where(work_current_state == '_')
-# temp = work_current_state[a[0]][b[0] + 1]
-# work_current_state[a[0]][b[0] + 1] = '_'
-# work_current_state[a[0]][b[0]] = temp
-# cost_right = checkCost(work_current_state, goal_state)
-#         # print(new_goal_state)
-#
-# work_current_state = np.array(new_current_state)
-# a, b = np.where(work_current_state == '_')
-# temp = work_current_state[a[0]][b[0] - 1]
-# work_current_state[a[0]][b[0] - 1] = '_'
-# work_current_state[a[0]][b[0]] = temp
-# cost_left = checkCost(work_current_state, goal_state)
-#         # print(new_goal_state)
-# work_current_state = np.array(new_current_state)
-# a, b = np.where(work_current_state == '_')
-# temp = work_current_state[a[0] - 1][b[0]]
-# work_current_state[a[0] - 1][b[0]] = '_'
-# work_current_state[a[0]][b[0]] = temp
-# cost_up = checkCost(work_current_state, goal_state)
-#         # new_goal_state = np.array(goal_state)
-#         # #down
-# work_current_state = np.array(new_current_state)
-# a, b = np.where(work_current_state == '_')
-# temp = work_current_state[a[0]+1][b[0]]
-# work_current_state[a[0] + 1][b[0]] = '_'
-# work_current_state[a[0]][b[0]] = temp
-# cost_down = checkCost(work_current_state,goal_state)
-# print(cost_up," ",cost_left," ",cost_down," ",cost_right)
-# work_current = []
-# for i in range(0,3,1):
-#     c =[]
-#     for j in range(0,3,1):
-#         c.append(work_current_state[i][j])
-#     work_current.append(c)
-# print(work_current)
-# for i in range(0,3,1):
-#     for j in range(0,3,1):
-#         print(work_current[i][j],end=" ")
-#     print()
-#     # cost_down = checkCost(work_current_state, goal_state)
-# l = (cost_left, cost_right, cost_up, cost_down)
-# X = l.index(min(l))
-# print(X)
-#
-#         # # Right
-#         # new_goal_state = np.array(goal_state)
-#         # a, b = np.where(new_goal_state == '_')
-#         # temp = new_goal_state[a[0]][b[0] + 1]
-#         # new_goal_state[a[0]][b[0] + 1] = '_'
-#         # new_goal_state[a[0]][b[0]] = temp
-#         # print(new_goal_state)
-#         # #left
-#         # new_goal_state = np.array(goal_state)
-#         # a, b = np.where(new_goal_state == '_')
-#         # temp = new_goal_state[a[0]][b[0] - 1]
-#         # new_goal_state[a[0]][b[0] - 1] = '_'
-#         # new_goal_state[a[0]][b[0]] = temp
-#         # print(new_goal_state)
-#         # #up
-#         # new_goal_state = np.array(goal_state)
-#         # a, b = np.where(new_goal_state == '_')
-#         # temp = new_goal_state[a[0]-1][b[0]]
-#         # new_goal_state[a[0]-1][b[0]] = '_'
-#         # new_goal_state[a[0]][b[0]] = temp
-#         # print(new_goal_state)
-#         # #down
-#         # new_goal_state = np.array(goal_state)
-#         # a, b = np.where(new_goal_state == '_')
-#         # temp = new_goal_state[a[0]][b[0]]
-#         # new_goal_state[a[0]+1][b[0]] = '_'
-#         # new_goal_state[a[0]+1][b[0]] = temp
-#         # print(new_goal_state)
-
-
-
-
-
-
-
